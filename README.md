@@ -1,67 +1,147 @@
 # The Ultimate Sajari React SDK Guide
 
-## Introduction 
-
-### What is Sajari?
-Sajari is a next-generation search engine that combines the best parts of a NoSQL database with the speed of a search index.
-
-### What is the Sajari React SDK?
-
-The Sajari React SDK is a library of React Hooks & Components to help build fast and powerful search interfaces.
-
-### Who is this guide for? 
-
-If you want to develop a new application or learn how to create a custom search experience for your existing application or website, this guide is for you.
-
-> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Guides
-
-### Getting started with the Sajari React SDK
+## Getting started with the Sajari React SDK
 
 This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
+Pre-requisites
+[Create React App](https://github.com/facebook/create-react-app)
 
-More guides coming soon...
 
-## Running the app
+##  1. Create a new react app
 
-### `yarn start`
+``` bash
+npx create-react-app sajari-app
+cd my-app
+npm start
+This will create your frontend app. For more details on create-react-app take a look at the React documentation.
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This will create your frontend app. For more details on create-react-app take a look at the [React documentation](https://reactjs.org/docs/create-a-new-react-app.html).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 2. Install the Sajari Search UI package
 
-### `yarn test`
+> The Sajari Search UI provides easy to use search components to quickly build a beautiful search interface. Let's run through building an example UI using the @sajari/react-search-ui package.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install the package using `yarn add` or `npm install`.
 
-### `yarn build`
+```
+yarn add @sajari/react-search-ui
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 3. Add the SearchProvider
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The [SearchProvider](https://react.docs.sajari.com/hooks/searchprovider) should be used as a wrapper for the entire application to provide a way to share application state between hooks, for example, the current query, active filters or the search response.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Wrap the App with the `SearchProvider`.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+``` javascript
+=== index.js ===
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+import {SearchProvider} from "@sajari/react-search-ui";
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ReactDOM.render(
+<SearchProvider>
+<App />
+</SearchProvider>,
+document.getElementById('root')
+);
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Start the app with `npm run start`
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Now we should see the following error message: 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+❌ TypeError: Cannot read property 'pipeline' of undefined
+
+Although we have wrapped the app in our search provider, we have not configured the search. 
+
+
+## 4. Configure the Search
+We need to tell the search provider which account, collection and pipeline to use for the search. The account is our Sajari account, the collection is where our data is stored and the pipeline specifies the search configuration.
+
+For this guide we will use a Sajari demo account. At the top of the index.js file we will import the Pipeline class and configure our pipeline. 
+
+> Replace the **account**, **collection** and the **pipeline** name (here it is *query*) with your own collection details to search your data instead of using the demo dataset. 
+
+```javascript
+=== index.js ===
+
+import {Pipeline, SearchProvider} from "@sajari/react-search-ui";
+
+const pipeline = new Pipeline(
+    {
+        account: '1594153711901724220',
+        collection: 'bestbuy',
+    },
+    'query',
+);
+```
+
+Next we need to pass the pipeline configuration to the SearchProvider like so:
+
+``` javascript
+=== index.js ===
+
+<SearchProvider
+      search={{pipeline}}
+      searchOnLoad
+  >
+```
+
+In the above code snippet we’ve passed the pipeline configuration to the search property. You will also notice that we’ve added a second property called searchOnLoad which will trigger a search on the initial load of the component.
+
+Start up the app, and you will see that the error has disappeared. However, so far we are still only seeing the default React App screen. Let’s add our Search. 
+
+## 5. Adding the Search UI
+In App.js let’s start by deleting the default React landing page by removing the <header> tags and anything in between.
+
+Next, we important the components we want to use for the UI. Let’s start simple with a search input and the results component.
+
+```javascript
+=== App.js ===
+
+import './App.css';
+import {Input, Results } from '@sajari/react-search-ui';
+
+
+function App() {
+  return (
+    <div className="App">
+        <div className="search-bar" >
+            <Input />
+        </div>
+        <div className="results" >
+            <Results />
+        </div>
+    </div>
+  );
+}
+
+export default App;
+```
+Note that we added a couple of divs around the Input and the Results component to add some styling. Let’s do that real quick.
+
+Replace the entire content in App.css with the following:
+
+```css
+=== App.css ===
+
+.search-bar{
+  margin: 50px 400px ;
+}
+.results{
+  padding:20px;
+  text-align: left;
+  max-width: 1200px;
+}
+```
+
+Now you should see a search input field and results when loading the app. Note that the results are likely to differ from what is shown below.
+
+The search is now fully functional. Try searching for watches or laptops or other products.  
+
+<img src="./assets/getting-started-1.png" />
 
