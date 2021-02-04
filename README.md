@@ -1,6 +1,4 @@
-# The Ultimate Sajari React SDK Guide
-
-## Getting started with the Sajari React SDK
+## Guide: Getting started with the Sajari React SDK
 
 This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
