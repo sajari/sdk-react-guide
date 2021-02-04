@@ -1,10 +1,30 @@
-# Getting Started with Create React App
+# The Ultimate Sajari React SDK Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction 
 
-## Available Scripts
+### What is Sajari?
+Sajari is a next-generation search engine that combines the best parts of a NoSQL database with the speed of a search index.
 
-In the project directory, you can run:
+### What is the Sajari React SDK?
+
+The Sajari React SDK is a library of React Hooks & Components to help build fast and powerful search interfaces.
+
+### Who is this guide for? 
+
+If you want to develop a new application or learn how to create a custom search experience for your existing application or website, this guide is for you.
+
+> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Guides
+
+### Getting started with the Sajari React SDK
+
+This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
+
+
+More guides coming soon...
+
+## Running the app
 
 ### `yarn start`
 
@@ -45,26 +65,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
