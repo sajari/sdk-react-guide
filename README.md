@@ -6,7 +6,7 @@ Pre-requisites
 [Create React App](https://github.com/facebook/create-react-app)
 
 
-##  1. Create a new react app
+###  1. Create a new react app
 
 ```bash
 npx create-react-app sajari-app
@@ -17,7 +17,7 @@ This will create your frontend app. For more details on create-react-app take a 
 
 This will create your frontend app. For more details on create-react-app take a look at the [React documentation](https://reactjs.org/docs/create-a-new-react-app.html).
 
-## 2. Install the Sajari Search UI package
+### 2. Install the Sajari Search UI package
 
 > The Sajari Search UI provides easy to use search components to quickly build a beautiful search interface. Let's run through building an example UI using the @sajari/react-search-ui package.
 
@@ -27,7 +27,7 @@ Install the package using `yarn add` or `npm install`.
 yarn add @sajari/react-search-ui
 ```
 
-## 3. Add the SearchProvider
+### 3. Add the SearchProvider
 
 The [SearchProvider](https://react.docs.sajari.com/hooks/searchprovider) should be used as a wrapper for the entire application to provide a way to share application state between hooks, for example, the current query, active filters or the search response.
 
@@ -57,7 +57,7 @@ Now we should see the following error message:
 Although we have wrapped the app in our search provider, we have not configured the search. 
 
 
-## 4. Configure the Search
+### 4. Configure the Search
 We need to tell the search provider which account, collection and pipeline to use for the search. The account is our Sajari account, the collection is where our data is stored and the pipeline specifies the search configuration.
 
 For this guide we will use a Sajari demo account. At the top of the index.js file we will import the Pipeline class and configure our pipeline. 
@@ -93,7 +93,7 @@ In the above code snippet we’ve passed the pipeline configuration to the searc
 
 Start up the app, and you will see that the error has disappeared. However, so far we are still only seeing the default React App screen. Let’s add our Search. 
 
-## 5. Adding the Search UI
+### 5. Adding the Search UI
 In App.js let’s start by deleting the default React landing page by removing the <header> tags and anything in between.
 
 Next, we important the components we want to use for the UI. Let’s start simple with a search input and the results component.
@@ -146,7 +146,7 @@ The search is now fully functional. Try searching for watches or laptops or othe
 This looks great, but the eagle eyed will have noticed that we are missing the title field for our products.
 
 
-## 6. Mapping fields
+### 6. Mapping fields
 
 Because the field is not called title in our dataset but name, we will have to map the fields. Luckily it’s really easy to map the fields using the FieldDictionary class.
 
@@ -184,7 +184,7 @@ Let’s take another look at our app:
 
 Now we can see the name of each product, and the subtitle displays the brand as specified in  the FieldDictionary.
 
-## 7. Adding filters
+### 7. Adding filters
 
 Filters are just as easy to add as mapping fields. To do so, use the FilterBuilder to create a filter and pass it to the SearchProvider as part of the ProviderPipelineConfig object.
 
@@ -228,7 +228,7 @@ To add the filter to the UI, all we need to do is import the Filter component to
 
 The title defined here will be used as the filter. To ensure the components are properly aligned on the page, we will need to add a couple more container divs and add some styling. See the complete example of all files in the next step. 
 
-# Summary
+### Summary
 Building a search UI with Sajari and React is very simple. Sajari provides a variety of powerful components to compose custom search UIs. And for even more flexibility, you can create your own components and use Sajari’s Hooks to implement a completely unique search experience on top of Sajari.
 
 If you have any questions, hit us up in the [community on Github](https://github.com/sajari/community).
