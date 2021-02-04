@@ -10,7 +10,7 @@ Pre-requisites
 
 ##  1. Create a new react app
 
-``` bash
+```bash
 npx create-react-app sajari-app
 cd my-app
 npm start
@@ -36,8 +36,8 @@ The [SearchProvider](https://react.docs.sajari.com/hooks/searchprovider) should 
 Wrap the App with the `SearchProvider`.
 
 
-``` javascript
-=== index.js ===
+```javascript
+/* index.js */
 
 import {SearchProvider} from "@sajari/react-search-ui";
 
@@ -67,7 +67,7 @@ For this guide we will use a Sajari demo account. At the top of the index.js fil
 > Replace the **account**, **collection** and the **pipeline** name (here it is *query*) with your own collection details to search your data instead of using the demo dataset. 
 
 ```javascript
-=== index.js ===
+/* index.js */
 
 import {Pipeline, SearchProvider} from "@sajari/react-search-ui";
 
@@ -82,8 +82,8 @@ const pipeline = new Pipeline(
 
 Next we need to pass the pipeline configuration to the SearchProvider like so:
 
-``` javascript
-=== index.js ===
+```javascript
+/* index.js */
 
 <SearchProvider
       search={{pipeline}}
@@ -101,7 +101,7 @@ In App.js let’s start by deleting the default React landing page by removing t
 Next, we important the components we want to use for the UI. Let’s start simple with a search input and the results component.
 
 ```javascript
-=== App.js ===
+/* App.js */
 
 import './App.css';
 import {Input, Results } from '@sajari/react-search-ui';
@@ -127,7 +127,7 @@ Note that we added a couple of divs around the Input and the Results component t
 Replace the entire content in App.css with the following:
 
 ```css
-=== App.css ===
+/* App.css */
 
 .search-bar{
   margin: 50px 400px ;
@@ -145,3 +145,92 @@ The search is now fully functional. Try searching for watches or laptops or othe
 
 <img src="./assets/getting-started-1.png" />
 
+This looks great, but the eagle eyed will have noticed that we are missing the title field for our products.
+
+
+## 6. Mapping fields
+
+Because the field is not called title in our dataset but name, we will have to map the fields. Luckily it’s really easy to map the fields using the FieldDictionary class.
+
+Similar to the pipeline configuration earlier, we create a [FieldDictionary](https://react.docs.sajari.com/classes/fielddictionary) and pass it into the SearchProvider.
+
+We import the FieldDictionary class and add the following: 
+
+```javascript
+/* index.js */
+
+import {FieldDictionary, Pipeline, SearchProvider} from "@sajari/react-search-ui";
+
+const fields = new FieldDictionary({
+    title: 'name',
+    subtitle: 'brand'
+});
+```
+
+Here we simple mapped the title property to the schema field with the name name and the subtitle attribute to the field with the name brand.
+
+Lastly, we pass the FieldDictionary we defined above into the SearchProvider’s search property like so:
+
+```javascript
+/* index.js */
+
+<SearchProvider
+    search={{pipeline, fields}}
+    searchOnLoad
+>
+```
+
+Let’s take another look at our app: 
+
+<img src="./assets/getting-started-2.png" />
+
+Now we can see the name of each product, and the subtitle displays the brand as specified in  the FieldDictionary.
+
+## 7. Adding filters
+
+Filters are just as easy to add as mapping fields. To do so, use the FilterBuilder to create a filter and pass it to the SearchProvider as part of the ProviderPipelineConfig object.
+
+First, let’s import the FilterBuilder and define the filter. We are looking to add a category filter for products. In the schema, categories are stored in a field called level1 for the first level of categories. 
+
+```javascript
+/* index.js */
+
+import {FieldDictionary, FilterBuilder, Pipeline, SearchProvider} from "@sajari/react-search-ui";
+
+const categoryFilter = new FilterBuilder({
+    name: 'category',
+    field: 'level1',
+});
+```
+
+The simplest version of a filter requires a name, this can be anything we want, and a field which identifies the field in the schema we want to user for the filter.
+
+Once defined, we pass the filter to the SearchProvider.
+
+```javascript
+/* index.js */
+
+<SearchProvider
+        search={{
+            pipeline,
+            fields,
+            filters: [categoryFilter]
+        }}
+        searchOnLoad
+    >
+```
+
+To add the filter to the UI, all we need to do is import the Filter component to our app frontend.
+
+```javascript
+/* App.js */
+
+<Filter type="list" name="category" title="Category" />
+```
+
+The title defined here will be used as the filter. To ensure the components are properly aligned on the page, we will need to add a couple more container divs and add some styling. See the complete example of all files in the next step. 
+
+# Summary
+Building a search UI with Sajari and React is very simple. Sajari provides a variety of powerful components to compose custom search UIs. And for even more flexibility, you can create your own components and use Sajari’s Hooks to implement a completely unique search experience on top of Sajari.
+
+If you have any questions, hit us up in the [community on Github](https://github.com/sajari/community).
