@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {FieldDictionary, FilterBuilder, Pipeline, SearchProvider} from "@sajari/react-search-ui";
+
+const pipeline = new Pipeline(
+    {
+        account: '1594153711901724220',
+        collection: 'bestbuy',
+    },
+    'query',
+);
+
+const fields = new FieldDictionary({
+    title: 'name',
+    subtitle: 'brand'
+});
+
+const categoryFilter = new FilterBuilder({
+    name: 'category',
+    field: 'level1',
+});
 
 ReactDOM.render(
-  <React.StrictMode>
+  <SearchProvider
+      search={{pipeline, fields, filters: [categoryFilter],
+      }}
+      searchOnLoad
+  >
     <App />
-  </React.StrictMode>,
+  </SearchProvider>,
   document.getElementById('root')
 );
 
