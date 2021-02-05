@@ -2,9 +2,13 @@
 
 This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
-Pre-requisites
-[Create React App](https://github.com/facebook/create-react-app)
+<img src="./assets/getting-started-2.png" />
 
+
+To check out the completed app, you can either:
+
+1. Clone the repository and check out this branch
+2. Fork the sandbox under https://codesandbox.io/s/sajari-sdk-react-getting-started-lk6v2
 
 ###  1. Create a new react app
 
