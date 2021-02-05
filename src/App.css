@@ -1,11 +1,10 @@
-
-.search-bar{
+.search-bar {
   margin: 50px auto;
   max-width: 600px;
 }
 
-.results{
-  padding:20px;
+.results {
+  padding: 20px;
   text-align: left;
   max-width: 1200px;
 }
@@ -14,9 +13,8 @@
   display: flex;
 }
 
-.filters{
+.filters {
   flex-basis: 300px;
   min-width: 300px;
-  padding:20px;
+  padding: 20px;
 }
-

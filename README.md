@@ -6,7 +6,6 @@ the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
 <img src="./assets/getting-started-2.png" />
 
-
 To check out the completed app, you can either:
 
 1. Clone the repository and check out this branch
@@ -27,7 +26,7 @@ the [React documentation](https://reactjs.org/docs/create-a-new-react-app.html).
 
 > The Sajari Search UI provides easy to use search components to quickly build a beautiful search interface. Let's run through building an example UI using the @sajari/react-search-ui package.
 
-Install the package using `yarn add` or `npm install`, we will use Yarn to install the ``react-search-ui`` package
+Install the package using `yarn add` or `npm install`, we will use Yarn to install the `react-search-ui` package
 
 Stop the react app if it is running and run the following command in the terminal
 
@@ -48,13 +47,13 @@ To do this, navigate to the `src` directory within your preferred IDE and edit t
 ```javascript
 /* index.js */
 
-import {SearchProvider} from "@sajari/react-search-ui";
+import { SearchProvider } from "@sajari/react-search-ui";
 
 ReactDOM.render(
-    <SearchProvider>
-        <App/>
-    </SearchProvider>,
-    document.getElementById('root')
+  <SearchProvider>
+    <App />
+  </SearchProvider>,
+  document.getElementById("root")
 );
 ```
 
@@ -74,19 +73,19 @@ Sajari account, the collection is where our data is stored and the pipeline spec
 For this guide we will use a Sajari demo account. At the top of the `index.js` file we will import the Pipeline class
 and configure our pipeline.
 
-> Replace the **account**, **collection** and the **pipeline** name (here it is *query*) with your own collection details to search your data instead of using our demo dataset.
+> Replace the **account**, **collection** and the **pipeline** name (here it is _query_) with your own collection details to search your data instead of using our demo dataset.
 
 ```javascript
 /* index.js */
 
-import {Pipeline, SearchProvider} from "@sajari/react-search-ui";
+import { Pipeline, SearchProvider } from "@sajari/react-search-ui";
 
 const pipeline = new Pipeline(
-    {
-        account: '1594153711901724220',
-        collection: 'bestbuy',
-    },
-    'query'
+  {
+    account: "1594153711901724220",
+    collection: "bestbuy",
+  },
+  "query"
 );
 ```
 
@@ -119,21 +118,20 @@ component.
 ```javascript
 /* App.js */
 
-import './App.css';
-import {Input, Results} from '@sajari/react-search-ui';
-
+import "./App.css";
+import { Input, Results } from "@sajari/react-search-ui";
 
 function App() {
-    return (
-        <div className="App">
-            <div className="search-bar">
-                <Input/>
-            </div>
-            <div className="results">
-                <Results/>
-            </div>
-        </div>
-    );
+  return (
+    <div className="App">
+      <div className="search-bar">
+        <Input />
+      </div>
+      <div className="results">
+        <Results />
+      </div>
+    </div>
+  );
 }
 
 export default App;
@@ -148,14 +146,14 @@ Replace the entire content in `App.css` with the following:
 /* App.css */
 
 .search-bar {
-    margin: 50px auto;
-    max-width: 600px;
+  margin: 50px auto;
+  max-width: 600px;
 }
 
 .results {
-    padding: 20px;
-    text-align: left;
-    max-width: 1200px;
+  padding: 20px;
+  text-align: left;
+  max-width: 1200px;
 }
 ```
 
@@ -181,11 +179,15 @@ We import the FieldDictionary class and add the following:
 ```javascript
 /* index.js */
 
-import {FieldDictionary, Pipeline, SearchProvider} from "@sajari/react-search-ui";
+import {
+  FieldDictionary,
+  Pipeline,
+  SearchProvider,
+} from "@sajari/react-search-ui";
 
 const fields = new FieldDictionary({
-    title: 'name',
-    subtitle: 'brand'
+  title: "name",
+  subtitle: "brand",
 });
 ```
 
@@ -220,11 +222,16 @@ schema, categories are stored in a field called `level1` for the first level of 
 ```javascript
 /* index.js */
 
-import {FilterBuilder, FieldDictionary, Pipeline, SearchProvider} from "@sajari/react-search-ui";
+import {
+  FilterBuilder,
+  FieldDictionary,
+  Pipeline,
+  SearchProvider,
+} from "@sajari/react-search-ui";
 
 const categoryFilter = new FilterBuilder({
-    name: 'category',
-    field: 'level1',
+  name: "category",
+  field: "level1",
 });
 ```
 
@@ -252,25 +259,24 @@ and Results components within our `App.js`.
 ```javascript
 /* App.js */
 
-import {Filter, Input, Results} from '@sajari/react-search-ui';
-
+import { Filter, Input, Results } from "@sajari/react-search-ui";
 
 function App() {
-    return (
-        <div className="App">
-            <div className="search-bar">
-                <Input/>
-            </div>
-            <div className="container">
-                <div className="filters">
-                    <Filter type="list" name="category" title="Category"/>
-                </div>
-                <div className="results">
-                    <Results/>
-                </div>
-            </div>
+  return (
+    <div className="App">
+      <div className="search-bar">
+        <Input />
+      </div>
+      <div className="container">
+        <div className="filters">
+          <Filter type="list" name="category" title="Category" />
         </div>
-    );
+        <div className="results">
+          <Results />
+        </div>
+      </div>
+    </div>
+  );
 }
 ```
 
@@ -281,13 +287,13 @@ added a couple more container divs and add some further styling to the `App.css`
 /* App.css */
 
 .search-bar {
-    margin: 50px 400px;
+  margin: 50px 400px;
 }
 
 .results {
-    padding: 20px;
-    text-align: left;
-    max-width: 1200px;
+  padding: 20px;
+  text-align: left;
+  max-width: 1200px;
 }
 ```
 
