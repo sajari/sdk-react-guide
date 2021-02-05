@@ -17,12 +17,16 @@ If you want to develop a new application or learn how to create a custom search 
 
 ## Guides
 
+Each guide for the Sajari React SDK is on a separate Git branch, you will need to checkout a branch to go through that specific guide.
+
 ### Getting started with the Sajari React SDK
 
 This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
+Checkout branch:
+`git checkout getting-started`
 
-More guides coming soon...
+_More guides coming soon ..._
 
 ## Running the app
 
