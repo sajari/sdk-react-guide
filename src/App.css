@@ -1,7 +1,9 @@
 
 .search-bar{
-  margin: 50px 400px ;
+  margin: 50px auto;
+  max-width: 600px;
 }
+
 .results{
   padding:20px;
   text-align: left;

@@ -128,12 +128,14 @@ Replace the entire content in App.css with the following:
 /* App.css */
 
 .search-bar{
-  margin: 50px 400px ;
+    margin: 50px auto;
+    max-width: 600px;
 }
+
 .results{
-  padding:20px;
-  text-align: left;
-  max-width: 1200px;
+    padding:20px;
+    text-align: left;
+    max-width: 1200px;
 }
 ```
 
