@@ -286,14 +286,23 @@ added a couple more container divs and add some further styling to the `App.css`
 ```css
 /* App.css */
 
-.search-bar {
-  margin: 50px 400px;
+.search-bar{
+  margin: 50px 400px ;
 }
-
-.results {
-  padding: 20px;
+.results{
+  padding:20px;
   text-align: left;
   max-width: 1200px;
+}
+
+.container {
+  display: flex;
+}
+
+.filters{
+  flex-basis: 300px;
+  min-width: 300px;
+  padding:20px;
 }
 ```
 
