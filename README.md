@@ -191,7 +191,7 @@ const fields = new FieldDictionary({
 });
 ```
 
-Here we simple mapped the `title` property to the schema field with the name `name` and the `subtitle` property to the
+Here we simply mapped the `title` property to the schema field with the name `name` and the `subtitle` property to the
 schema field with the name `brand`.
 
 Lastly, we pass the `FieldDictionary` we defined above into the `SearchProvider`’s `search` property like so:
