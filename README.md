@@ -4,12 +4,14 @@
 
 To create a truly unique search experience, [React Hooks](https://react.docs.sajari.com/hooks) allow you to use your own components while hooking into the state of Sajari's search provider.
 
-In this guide we are customising the products shown in the search results.
+In this guide, we are customising the default look and feel of the products shown in the search results. 
+
+<img src="./assets/custom-result-2.png" />
 
 To check out the completed app, you can either:
 
-Clone the repository and check out this branch
-Fork the sandbox under https://codesandbox.io/s/sajari-sdk-react-getting-started-lk6v2
+* Clone the repository and check out this branch
+* Fork the sandbox under https://codesandbox.io/s/sajari-sdk-react-getting-started-lk6v2
 
 ### Installation
 
@@ -202,8 +204,6 @@ Lastly, to ensure the results look good, replace the content of the `App.css` fi
   font-weight: bold;
 }
 ```
-
-<img src="./assets/custom-result-2.png" />
 
 
 ### 🎉 Congratulations, you've created a custom result component!
