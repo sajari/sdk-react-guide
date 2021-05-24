@@ -26,6 +26,12 @@ Branch: https://github.com/sajari/sdk-react-guide/tree/getting-started
 This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
 
+### Custom Results
+
+Branch: https://github.com/sajari/sdk-react-guide/tree/custom-results
+
+This guide will teach you how to create custom search results using your own component instead of the results component provides by the Sajari React SDK. 
+
 _More guides coming soon ..._
 
 ## Running the app
