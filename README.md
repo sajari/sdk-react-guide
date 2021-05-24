@@ -11,7 +11,7 @@ In this guide, we are customising the default look and feel of the products show
 To check out the completed app, you can either:
 
 * Clone the repository and check out this branch
-* Fork the sandbox under https://codesandbox.io/s/sajari-sdk-react-getting-started-lk6v2
+* Fork the sandbox under https://codesandbox.io/s/sajari-sdk-react-guide-custom-results-cui8e
 
 ### Installation
 
