@@ -4,7 +4,12 @@
 
 To create a truly unique search experience, [React Hooks](https://react.docs.sajari.com/hooks) allow you to use your own components while hooking into the state of Sajari's search provider.
 
-In this guide we are customising the products shown in the search results. 
+In this guide we are customising the products shown in the search results.
+
+To check out the completed app, you can either:
+
+Clone the repository and check out this branch
+Fork the sandbox under https://codesandbox.io/s/sajari-sdk-react-getting-started-lk6v2
 
 ### Installation
 
