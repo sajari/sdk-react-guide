@@ -2,13 +2,11 @@
 
 ## Introduction
 
-To create a truly unique search experience, [React Hooks]([Hooks documentation](https://react.docs.sajari.com/hooks) allow you to use your own components while hooking into the state of Sajari's search provider.
+To create a truly unique search experience, [React Hooks](https://react.docs.sajari.com/hooks) allow you to use your own components while hooking into the state of Sajari's search provider.
 
 In this guide we are customising the products shown in the search results. 
 
-### Getting started
-
-### Install
+### Installation
 
 Install the React Hooks via yarn or npm install.
 
@@ -203,5 +201,7 @@ Lastly, to ensure the results look good, replace the content of the `App.css` fi
 <img src="./assets/custom-result-2.png" />
 
 
-## 🎉 Congratulations, you've created a custom result component!
+### 🎉 Congratulations, you've created a custom result component!
+
+Your search results will interact as expected with other components. Filters will continue to work and adding a Pagination component will add pagination functionality to your custom results.
 
