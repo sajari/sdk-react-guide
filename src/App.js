@@ -1,5 +1,6 @@
 import './App.css';
-import {Filter, Input, Results} from '@sajari/react-search-ui';
+import {Filter, Input, Pagination, Results} from '@sajari/react-search-ui';
+import CustomResults from "./components/custom-result";
 
 
 function App() {
@@ -12,10 +13,9 @@ function App() {
             <div className="filters">
                 <Filter type="list" name="category" title="Category" />
             </div>
-            <div className="results" >
-                <Results />
-            </div>
+            <CustomResults />
         </div>
+        <Pagination />
     </div>
   );
 }
