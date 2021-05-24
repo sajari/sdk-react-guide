@@ -2,14 +2,14 @@
 
 ## Introduction 
 
-### What is Sajari?
+#### What is Sajari?
 Sajari is a next-generation search engine that combines the best parts of a NoSQL database with the speed of a search index.
 
-### What is the Sajari React SDK?
+#### What is the Sajari React SDK?
 
 The Sajari React SDK is a library of React Hooks & Components to help build fast and powerful search interfaces.
 
-### Who is this guide for? 
+#### Who is this guide for? 
 
 If you want to develop a new application or learn how to create a custom search experience for your existing application or website, this guide is for you.
 
@@ -19,14 +19,14 @@ If you want to develop a new application or learn how to create a custom search 
 
 Each guide lives on it's own Git branch, checkout a the branch to follow a specific guide.
 
-### Getting started with the Sajari React SDK
+#### Getting started with the Sajari React SDK
 
 Branch: https://github.com/sajari/sdk-react-guide/tree/getting-started
 
 This guide will teach you how to set up a new application from scratch with [Create React App](https://github.com/facebook/create-react-app) and the [Sajari React SDK](https://github.com/sajari/sdk-react).
 
 
-### Custom Results
+#### Custom Results
 
 Branch: https://github.com/sajari/sdk-react-guide/tree/custom-results
 
@@ -36,7 +36,7 @@ _More guides coming soon ..._
 
 ## Running the app
 
-### `yarn start`
+`yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -44,12 +44,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+`yarn test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+`yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -59,7 +59,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+`yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
