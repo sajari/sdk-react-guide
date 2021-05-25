@@ -21,9 +21,9 @@ Install the React Hooks via yarn or npm install.
 
 ### Create the custom result component 
 
-First, create a new directory for your custom component under the `src` directory. Call it the directory `components`.
+First, create a new directory for your custom component under the `src` directory. For this tutorial we will call the directory `components`.
 
-Create a new file in the `components` directory called `custom-results.js`. Add the following code: 
+Create a new file in the `components` directory called `custom-results.js` and add the following code: 
 
 ```javascript
 /*  custom-results.js */ 
@@ -42,12 +42,12 @@ function CustomResults(){
 export default CustomResults;
 ```
 
-We just created a very basic version of our custom result. Let's use it instead of the default Results component. In `App.js` import the new component. 
+We just created a very basic version of our custom result, now let's use it instead of the default Results component. In `App.js` import the new ``CustomResults`` component. 
 
 ```
 import CustomResults from "./components/custom-result";
 ```
-Now find and replace `<Results />` with `<CustomResults />`. Start the app with `yarn start`, you should see something similar to the following screen. 
+Now find and replace the default `<Results />` component with our `<CustomResults />`. Start the app with `yarn start`, you should see something similar to the following screen. 
 
 <img src="./assets/custom-result-1.png" />
 
@@ -55,11 +55,11 @@ Congratulations, you just rendered your first custom component!
 
 ### Hooking into `useSearch`
 
-Next, we want to access the search results once a search is being executed. To do so, add the following to the beginning of the custom hook function: 
+Next, we want to access the search results once a search is being executed. To do this, add the following to the beginning of the custom hook function: 
 
 `  const { results = [] } = useSearch();`
 
-The useSearch hook provides a way to perform a search using the current context or a custom one-off search. It returns results for the current query. By default, it will use the Variables and Pipeline from the context. In the line above, we are adding the search results to the results array const.
+The `useSearch` hook provides a way to perform a search using the current context or a custom one-off search. It returns results for the current query. By default, it will use the Variables and Pipeline from the context. In the line above, we are adding the search results to the results array const.
 
 To test it, let's replace our placeholder text and check the size of the result
 
@@ -87,7 +87,7 @@ To do this we will use the `Array map()` method which takes a function as an arg
 );
 ```
 
-Let's call the function we are passing to the map method `renderResult`. Next up we add that function to the component. Above the return, add the following: 
+Let's call the function we are passing to the map method `renderResult`. Next up we add that function to the component. Above the return, add the following `renderResult` function: 
 
 ```javascript
  function renderResult(result) {
@@ -95,7 +95,7 @@ Let's call the function we are passing to the map method `renderResult`. Next up
     return (
         <div className="card">
                 <div className="result-image" >
-                    <img src={values.image} />
+                    <img src={values.image} alt={values.name} />
                 </div>
                 <div className="result-description">
                     <div className="result-name">
@@ -112,13 +112,13 @@ Let's call the function we are passing to the map method `renderResult`. Next up
 }
 ```
 
-To make it easier to refer to the values throughout this function, we are assigning the values map to the `const values` variable.
+To make it easier to refer to the `values` throughout this function, we are assigning the `result.values` map to the `const values` variable.
 
-Let's create our custom result. In this example we've added a "Buy now..." button that appears on hover. But you can also add lozenges, or a like button. Implement whatever amazing design you can imagine, creating our own component gives you complete freedom. 
+Let's create our custom result. In this example we've added a "Buy now..." button that appears on hover. But you can also add lozenges, or a like button. Implement whatever amazing design you can imagine, creating your own component gives you complete freedom. 
 
 You can access the fields in the result via `{values.[schema-field]}`.
 
->  Website collections only return the title, url and description by default. To get access to all fields, add the [variables attribute](https://react.docs.sajari.com/classes/variables) with the following configration to the [SearchProvider](https://react.docs.sajari.com/search-ui/searchprovider) `variables: new Variables({fields: ""})`.
+>  If you are working with a [Website collection](https://docs.sajari.com/user-guide/indexing-data/create-collection/), they only return the title, url and description by default. To get access to all fields, add the [variables attribute](https://react.docs.sajari.com/classes/variables) with the following configration to the [SearchProvider](https://react.docs.sajari.com/search-ui/searchprovider) `variables: new Variables({fields: ""})`.
 
 Lastly, to ensure the results look good, replace the content of the `App.css` file with the following styles. We won't get into the details of the styles here.  
 
@@ -208,5 +208,5 @@ Lastly, to ensure the results look good, replace the content of the `App.css` fi
 
 ### 🎉 Congratulations, you've created a custom result component!
 
-Your search results will interact as expected with other components. Filters will continue to work and adding a Pagination component will add pagination functionality to your custom results.
+Your search results will interact as expected with other components. Filters will continue to work and adding a `Pagination` component will add pagination functionality to your custom results.
 

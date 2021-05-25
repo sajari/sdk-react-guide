@@ -10,7 +10,7 @@ function CustomResults() {
         return (
             <div className="card">
                     <div className="result-image" >
-                        <img src={values.image} />
+                        <img src={values.image}  alt={values.name}/>
                     </div>
                     <div className="result-description">
                         <div className="result-name">
